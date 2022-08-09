@@ -119,6 +119,11 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+# the static files location
+STATICFILES_DIRS = [
+    BASE_DIR / 'movies/static'
+]
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 

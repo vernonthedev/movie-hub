@@ -18,10 +18,14 @@ from django.urls import path
 from movies import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', views.home),
-    path('movies/', views.movies),
-    path('movies/<int:id>', views.detail),
-    path('movies/add', views.add),
-    path('movies/delete/<int:id>', views.delete)
+    path('admin/', admin.site.urls, name='admin'),
+    path('', views.home, name='home'),
+    path('movies/', views.movies, name='allmovies'),
+    path('movies/<int:id>', views.detail, name='list-movie'),
+    path('movies/add', views.add, name='add-movie'),
+    path('movies/delete/<int:id>', views.delete, name='delete-movie'),
+
+
+    path('login/', views.loghere, name='loginhere'),
+    path('create-library/', views.createlib, name='create-library')
 ]

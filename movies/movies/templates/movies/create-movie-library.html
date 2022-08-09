@@ -1,0 +1,52 @@
+{% extends 'movies/Home.html'%}
+{% load static%}
+
+
+{% block content %}
+
+    <section class="u-align-center u-clearfix u-grey-5 u-section-1" id="sec-c383" style="padding-top: 100px;">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h1 class="u-text u-text-default u-text-1">ADD MOVIE</h1>
+        <div class="u-form u-form-1">
+
+
+          <form action="/movies/Movie-Library" method="POST" class="u-clearfix u-form-spacing-20 u-form-vertical u-inner-form" style="padding: 10px" source="email" name="form">
+            {% csrf_token %}
+            <div class="u-form-group u-form-name u-label-none">
+              <input type="text" placeholder="Enter Movie Title" id="name-3b9a" name="title" class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle u-input-1" required="" maxlength="200">
+            </div>
+            <div class="u-form-group u-form-message u-label-none">
+               <textarea placeholder="Enter Movie Description" rows="4" cols="50" id="message-3b9a" name="movie_description" class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle u-input-2" required="" maxlength="1000"></textarea>
+            </div>
+            <div class="u-form-group u-label-none u-form-group-3">
+             
+              <input type="text" placeholder="Enter Movie Year" id="text-ebf6" name="year" class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle u-input-3" maxlength="100">
+            </div>
+            <div class="u-form-group u-form-select u-label-none u-form-group-4">
+         
+              <div class="u-form-select-wrapper">
+                <select id="select-7385" name="select" class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle u-input-4">
+                  <option value="Hollywood">Hollywood</option>
+                  <option value="Bollywood">Bollywood</option>
+                  <option value="Nollywood">Nollywood</option>
+                  <option value="International">International</option>
+                  <option value="Local">Local</option>
+                </select>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
+              </div>
+            </div>
+            <div class="u-align-center u-form-group u-form-submit">
+              <!-- <a href="#" class="u-border-2 u-border-active-black u-border-black u-border-hover-palette-2-base u-btn u-btn-round u-btn-submit u-button-style u-none u-radius-8 u-btn-1">Submit</a> -->
+              <input type="submit" value="Add"  class="u-border-2 u-border-active-black u-border-black u-border-hover-palette-2-base u-btn u-btn-round u-btn-submit u-button-style u-none u-radius-8 u-btn-1"/>
+            </div>
+
+          </form>
+
+
+        </div>
+      </div>
+    </section>
+
+{% endblock %}
+    
+    

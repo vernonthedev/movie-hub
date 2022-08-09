@@ -7,11 +7,11 @@ from .models import Movies
 def movies(request):
     # we are getting all the movies from the model part
     data = Movies.objects.all()
-    return render(request, 'movies/movies.html', {'movies':data})
+    return render(request, 'movies/Movie-Library.html', {'movies':data})
 
 # home page view
 def home(request):
-    return HttpResponse("Home page")
+    return render(request, 'movies/Home.html')
 
 # movie description view
 def detail(request, id):
@@ -23,13 +23,14 @@ def add(request):
     # get the data submitted through the form 
     title = request.POST.get('title')
     year = request.POST.get('year')
+    desc = request.POST.get('movie_description')
     # if statements send the data and render it by creating a new object
-    if title and year:
+    if title and year and desc:
         # create a new object
-        movie =  Movies(title=title, year=year)
+        movie =  Movies(title=title, year=year, description=desc)
         movie.save()
         return HttpResponseRedirect('/movies')
-    return render(request, 'movies/add.html')
+    return render(request, 'movies/create-movie-library.html')
 
 # creating the delete view 
 def delete(request, id):
@@ -39,3 +40,11 @@ def delete(request, id):
         raise Http404("Movie Does not Exist")
     movie.delete()
     return HttpResponseRedirect('/movies')
+
+# creating a login view
+def loghere(request):
+    return render(request, 'movies/logme.html')
+
+# creating a login view
+def createlib(request):
+    return render(request, 'movies/create-movie-library.html')

@@ -5,6 +5,7 @@ from django.db import models
 class Movies(models.Model):
     title = models.CharField(max_length=200)
     year = models.IntegerField(default=2000)
+    description = models.CharField(max_length=600)
 
     # overwriting the default display of the admin string descriptions
     def __str__(self):

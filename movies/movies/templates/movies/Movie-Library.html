@@ -1,0 +1,38 @@
+{% extends 'movies/Home.html' %}
+{% load static%}
+
+
+
+{% block content %}
+  {% for movie in movies%}
+    <section class="u-clearfix u-section-1" id="sec-506c" style="padding-top: 100px;">
+
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-expanded-height u-list u-list-1">
+          <div class="v-repeater v-repeater-0">
+            <div class="v-container-style v-list-item v-repeater-item">
+              <div class="u-container-layout u-similar-container u-container-layout-1">
+               
+                <img alt="" class="u-expanded-width u-image u-image-round u-radius-10 u-image-1" data-image-width="1280" data-image-height="720" src="{% static 'images/img8.png'%}">
+                <h3 class="u-text u-text-default u-text-1">{{movie.title}} - {{movie.year}}</h3>
+                <p class="u-text u-text-2">Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
+                <a href="{{movie.id}}" class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-1">VIEW more</a>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+  {% endfor %}
+
+
+  <div class="add-mov" style="padding-left: 200px; padding-bottom: 50px;">
+    <a href="{% url 'create-library'%}" class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-1">Add Movie</a>
+  </div>
+
+
+{% endblock %}
+   
+
+    
