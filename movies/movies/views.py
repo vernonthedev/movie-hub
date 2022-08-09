@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render
 # importing the models so that we display them from the admin site to the front end
 from .models import Movies
@@ -20,4 +20,22 @@ def detail(request, id):
 
 # adding the movie from the homepage view
 def add(request):
+    # get the data submitted through the form 
+    title = request.POST.get('title')
+    year = request.POST.get('year')
+    # if statements send the data and render it by creating a new object
+    if title and year:
+        # create a new object
+        movie =  Movies(title=title, year=year)
+        movie.save()
+        return HttpResponseRedirect('/movies')
     return render(request, 'movies/add.html')
+
+# creating the delete view 
+def delete(request, id):
+    try:
+        movie = Movies.objects.get(pk=id)
+    except: 
+        raise Http404("Movie Does not Exist")
+    movie.delete()
+    return HttpResponseRedirect('/movies')
